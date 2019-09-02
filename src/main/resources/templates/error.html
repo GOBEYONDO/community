@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/head.html">
+    <title>error</title>
+</head>
+<body>
+<div class="jumbotron">
+    <h1>出错了</h1>
+    <p th:text="${errormessage}">服务器炸了</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+</body>
+<footer th:replace="public/footer.html"></footer>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--引入head-->
+<head th:replace="public/head.html">
+    <title>主页</title>
+</head>
+<body>
+<!--引入header-->
+<header th:replace="public/header.html"></header>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+            <h2><span class="glyphicon glyphicon-search glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
+            <hr>
+            <div class="media" th:each="question : ${questions}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object"  th:src="${question.user.avatar_url}" alt="头像" width="35px" height="35px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a th:href="@{question-main(id=${question.id})}" th:text="${question.title}"></a>
+                    </h4>
+                    <span class="text-desc">
+                        <span th:text="${question.comment_count}"></span>
+                        个回复·
+                        <span th:text="${question.view_count}"></span>
+                        次浏览·
+                        <span th:text="${#dates.format(question.gmtCreate,'dd MMMM YYYY')}"></span>
+                    </span>
+                </div>
+            </div>
+                <!--分页-->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <!--上一页 begin-->
+                    <li th:class="${pageInfo.pageNum == 1}? 'disabled': ''">
+                        <a th:if="${pageInfo.pageNum != 1}" th:href="@{/(pagesize=${pageInfo.pageSize},page=${pageInfo.getPrePage()},search=${search})}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                        <a th:if="${pageInfo.pageNum == 1}" href="javascript:void(0);" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <!--上一页 end-->
+                    <li th:each="page : ${pages}" th:class="${pageInfo.pageNum == page}?'active':''">
+                        <a th:href="@{/(pagesize=${pageInfo.pageSize},page=${page},search=${search})}" th:text="${page}"></a>
+                    </li>
+                    <!--下一页 begin-->
+                    <li th:class="${pageInfo.pageNum == pageInfo.pageSize}? 'disabled': ''">
+                        <a th:if="${pageInfo.pageNum != pageInfo.pages}" th:href="@{/(pagesize=${pageInfo.pageSize},page=${pageInfo.getNextPage()},search=${search})}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                        <a th:if="${pageInfo.pageNum == pageInfo.pages}" href="javascript:void(0);" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <!--下一页 end-->
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
+        </div>
+    </div>
+</div>
+<footer th:replace="public/footer.html"></footer>
+</body>
+
+</html>

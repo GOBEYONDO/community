@@ -1,0 +1,31 @@
+.text-desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+.btn-publish {
+    float: right;
+    margin-bottom: 15px;
+}
+
+.question-title {
+    margin-top: 25px;
+}
+.comment {
+
+    margin: 10px 0;
+
+}
+
+.menu .active {
+    color: #499ef3;
+}
+.img-rounded {
+
+    border-radius: 6px;
+
+}
+.footer{
+    text-align: center;
+    color: gray;
+}

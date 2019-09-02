@@ -1,0 +1,30 @@
+github:
+  client:
+   id: Iv1.1cbdfe69db49b2e7
+   secret: 45e7dd260fccaef404f47e306ca6dea617079daf
+  Redirect_uri: http://localhost:8080/callback
+
+spring:
+  datasource:
+    url: jdbc:h2:~/community
+    driver-class-name: org.h2.Driver
+    username: jsy
+    password: 123
+
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+
+
+logging:
+  file:
+    max-size: 10MB
+    max-history: 30
+
+  level:
+    root: info
+    cn:
+      jsy:
+        community:
+          dao : debug
+  path: E:\ideajava\community\log
