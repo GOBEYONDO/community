@@ -1,18 +1,15 @@
 package cn.jsy.community.interceptor;
 
-import cn.jsy.community.entity.User;
+import cn.jsy.community.model.entity.User;
 import cn.jsy.community.service.UserService;
-import cn.jsy.community.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.URI;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {

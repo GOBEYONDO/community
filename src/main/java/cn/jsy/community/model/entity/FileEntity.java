@@ -1,4 +1,4 @@
-package cn.jsy.community.entity;
+package cn.jsy.community.model.entity;
 
 import lombok.Data;
 

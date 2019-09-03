@@ -1,11 +1,11 @@
 package cn.jsy.community.dao;
 
-import cn.jsy.community.entity.Question;
-import cn.jsy.community.entity.Tag;
-import cn.jsy.community.entity.User;
+import cn.jsy.community.model.dto.UserDTO;
+import cn.jsy.community.model.entity.Question;
+import cn.jsy.community.model.entity.User;
+import cn.jsy.community.model.dto.QuestionDTO;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -25,12 +25,12 @@ public interface QuestionDao {
             @Result(column = "view_count",property = "view_count"),
             @Result(column = "like_count",property = "like_count"),
             @Result(column = "random_id",property = "random_id"),
-            @Result(column = "creator",property = "user",javaType = User.class,one=@One(select = "cn.jsy.community.dao.UserDao.findById"))
+            @Result(column = "creator",property = "user",javaType = UserDTO.class,one=@One(select = "cn.jsy.community.dao.UserDao.findById"))
     }
     )
-    public List<Question> findAll(String titleStr);
+    public List<QuestionDTO> findAll(String titleStr);
     @Select("select * from question where creator=#{creator}")
-    public List<Question> findByCreator(Integer creator);
+    public List<QuestionDTO> findByCreator(Integer creator);
     @Select("select * from question where id=#{id}")
     @Results({
             @Result(id = true, column = "id", property = "id"),
@@ -46,7 +46,7 @@ public interface QuestionDao {
             @Result(column = "random_id",property = "tags",javaType = java.util.List.class , many = @Many(select = "cn.jsy.community.dao.TagDao.findByQuestionRandomId"))
     }
     )
-    public Question findById(Integer id);
+    public QuestionDTO findById(Integer id);
 
     @Update("update question set title=#{title},description=#{description} where id=#{id}")
     public void  updateById(Question question);

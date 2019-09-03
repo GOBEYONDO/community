@@ -4,16 +4,14 @@ import cn.jsy.community.dao.CommentDao;
 import cn.jsy.community.dao.NotificationDao;
 import cn.jsy.community.dao.QuestionDao;
 import cn.jsy.community.dao.UserDao;
-import cn.jsy.community.entity.Comment;
-import cn.jsy.community.entity.Notification;
-import cn.jsy.community.entity.Question;
-import cn.jsy.community.entity.User;
+import cn.jsy.community.model.entity.Notification;
+import cn.jsy.community.model.dto.QuestionDTO;
+import cn.jsy.community.model.dto.CommentDTO;
 import cn.jsy.community.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,14 +26,14 @@ public class NotificationServiceImpl implements NotificationService {
     private NotificationDao notificationDao;
     @Transactional
     @Override
-    public void save(Comment comment) {
+    public void save(CommentDTO commentDto) {
         Notification notification =new Notification();
 
-        notification.setResponderId(comment.getComment_id());
+        notification.setResponderId(commentDto.getComment_id());
 
-        notification.setType(comment.getType());
-        notification.setQuestionId(comment.getQuestion_id());
-        Question question = questionDao.findById(comment.getQuestion_id());
+        notification.setType(commentDto.getType());
+        notification.setQuestionId(commentDto.getQuestion_id());
+        QuestionDTO question = questionDao.findById(commentDto.getQuestion_id());
         notification.setQuestion_user_id(question.getUser().getId());
         notification.setView(0);
         notificationDao.save(notification);

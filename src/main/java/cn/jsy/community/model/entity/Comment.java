@@ -1,4 +1,4 @@
-package cn.jsy.community.entity;
+package cn.jsy.community.model.entity;
 
 import lombok.Data;
 
@@ -12,6 +12,4 @@ public class Comment {
     private Long gmt_modified;
     private Integer like_count;
     private String content;
-    private Integer question_id;
-    private User user;
 }

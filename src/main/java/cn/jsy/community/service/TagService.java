@@ -1,6 +1,6 @@
 package cn.jsy.community.service;
 
-import cn.jsy.community.entity.Tag;
+import cn.jsy.community.model.entity.Tag;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package cn.jsy.community.dao;
 
-import cn.jsy.community.entity.Tag;
+import cn.jsy.community.model.entity.Tag;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

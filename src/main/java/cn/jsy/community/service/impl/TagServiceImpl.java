@@ -1,7 +1,7 @@
 package cn.jsy.community.service.impl;
 
 import cn.jsy.community.dao.TagDao;
-import cn.jsy.community.entity.Tag;
+import cn.jsy.community.model.entity.Tag;
 import cn.jsy.community.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

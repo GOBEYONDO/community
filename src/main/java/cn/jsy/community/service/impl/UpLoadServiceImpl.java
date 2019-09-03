@@ -1,6 +1,6 @@
 package cn.jsy.community.service.impl;
 
-import cn.jsy.community.entity.FileEntity;
+import cn.jsy.community.model.entity.FileEntity;
 import cn.jsy.community.service.UpLoadService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

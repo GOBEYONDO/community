@@ -1,8 +1,8 @@
 package cn.jsy.community.controller;
 
 import cn.jsy.community.model.dto.AccessTokenDTO;
-import cn.jsy.community.entity.GitHubUserEntity;
-import cn.jsy.community.entity.User;
+import cn.jsy.community.model.dto.GitHubUserDTO;
+import cn.jsy.community.model.entity.User;
 import cn.jsy.community.provider.GithubProvider;
 import cn.jsy.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
 
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
-        GitHubUserEntity gitUser = githubProvider.getUser(accessToken);
+        GitHubUserDTO gitUser = githubProvider.getUser(accessToken);
 
         if (gitUser!=null){
             request.getSession().setAttribute("user",gitUser);

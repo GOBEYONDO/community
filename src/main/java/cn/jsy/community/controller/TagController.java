@@ -1,6 +1,6 @@
 package cn.jsy.community.controller;
 
-import cn.jsy.community.entity.Tag;
+import cn.jsy.community.model.entity.Tag;
 import cn.jsy.community.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

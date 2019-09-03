@@ -1,6 +1,6 @@
 package cn.jsy.community.controller;
 
-import cn.jsy.community.entity.Notification;
+import cn.jsy.community.model.entity.Notification;
 import cn.jsy.community.service.NotificationService;
 import cn.jsy.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

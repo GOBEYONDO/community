@@ -2,8 +2,9 @@ package cn.jsy.community.service.impl;
 
 import cn.jsy.community.dao.QuestionDao;
 import cn.jsy.community.dao.UserDao;
-import cn.jsy.community.entity.Question;
-import cn.jsy.community.entity.User;
+import cn.jsy.community.model.dto.QuestionDTO;
+import cn.jsy.community.model.dto.UserDTO;
+import cn.jsy.community.model.entity.User;
 import cn.jsy.community.service.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private QuestionDao questionDao;
     @Override
-    public List<User> findAll() {
+    public List<UserDTO> findAll() {
         return userDao.findAll();
     }
 
@@ -32,10 +33,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer id,Integer page ,Integer pageSize) {
-        User user = userDao.findById(id);
+    public UserDTO findById(Integer id,Integer page ,Integer pageSize) {
+        UserDTO user = userDao.findById(id);
         PageHelper.startPage(page,pageSize);
-        List<Question> questions = questionDao.findByCreator(user.getId());
+        List<QuestionDTO> questions = questionDao.findByCreator(user.getId());
         user.setQuestions(questions);
         return user;
     }
